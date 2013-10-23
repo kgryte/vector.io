@@ -227,4 +227,128 @@
 
 	}; // end METHOD randexp()
 
+
+	// METHOD: randgeom( prob )
+	//
+	// Generate geometric random numbers based on a specified probability.
+	utils.randgeom = function( prob, length ) {
+		//
+		//
+		//
+		//
+
+
+		if ( !arguments.length ) {
+			console.error('ERROR:utils.randgeom:no probability provided.');
+			return;
+		}
+
+		var vec = [],
+			randu,
+			numValues = length || 1;
+
+
+		for ( var i = 0; i < numValues; i++ ) {
+			randu = Math.rand();
+			vec.push( -Math.log( 1-randu ) / Math.log( prob ) );
+		} // end FOR i
+
+		if ( numValues === 1 ) {
+			return vec[0];
+		}
+		return vec;
+
+
+	}; // end METHOD randgeom()
+
+
+	// METHOD: randbernoulli( prob )
+	//
+	// Generate Bernoulli random variates based on a specified probability.
+	utils.randbernoulli = function( prob, length ) {
+		//
+		//
+		//
+		//
+
+		if ( !arguments.length ) {
+			console.error('ERROR:utils.randbernoulli:no probability provided.');
+			return;
+		}
+
+		var vec = [],
+			randu,
+			numValues = length || 1;
+
+
+		for ( var i = 0; i < numValues; i++ ) {
+			randu = Math.rand();
+
+			if ( randu < 1 - prob ) {
+				vec.push( 0 );
+			}else {
+				vec.push( 1 );
+			}
+
+		} // end FOR i
+
+		if ( numValues === 1 ) {
+			return vec[0];
+		}
+		return vec;
+
+
+	}; // end METHOD randbernoulli()
+
+
+
+	// METHOD: randbinom( numTrials, prob )
+	//
+	// Generate binomial random numbers given a number of trials and probability of success.
+	utils.randbinom = function( numTrials, prob, length ) {
+		//
+		//
+		//
+		//
+
+		if ( !arguments.length ) {
+			console.error('ERROR:utils.randbinom:trial number and success probability not provided.');
+			return;
+		}
+
+		var vec = [],
+			numSuccess = 0,
+			randu,
+			numValues = length || 1;
+
+
+		for ( var i = 0; i < numValues; i++ ) {
+
+			for ( var j = 0; j < numTrials; j ++) {
+
+				randu = Math.rand();
+
+				if ( randu <= prob ) {
+					numSuccess += 1;
+				}
+
+			} // end FOR j
+
+			vec.push( numSuccess );
+
+			// Reset the number of successes:
+			numSuccess = 0;
+
+		} // end FOR i
+
+		if ( numValues === 1 ) {
+			return vec[0];
+		}
+		return vec;
+
+	}; // end METHOD randbinom()
+
+
+
+
 })( utils );

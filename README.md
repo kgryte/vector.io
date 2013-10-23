@@ -8,6 +8,9 @@ A JavaScript utility library. Functionality includes:
 	*  	Poisson
 	*	Normal
 	* 	Exponential
+	* 	Geometric
+	*	Bernoulli
+	*	Binomial
 
 2. 	Vector operations:
 	*	initialized zero-vector
@@ -22,9 +25,13 @@ A JavaScript utility library. Functionality includes:
 	* 	cumulative mass (CMF)
 	*	min
 	*	max
+	*	sum
 	* 	(median)
 	*	(mode)
 	*	
-	
+
 4. 	Matrix operations:
 	* 	identity
+
+
+

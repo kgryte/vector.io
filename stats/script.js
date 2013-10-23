@@ -196,4 +196,30 @@
 	}; // end METHOD std()
 
 
+	// METHOD: sum( vector )
+	//
+	// Calculate the sum of an input vector.
+	utils.sum = function( vector ) {
+		//
+		//	NOTES:
+		//		- 
+		//
+		//
+
+		if ( !arguments.length ) {
+			console.error('ERROR:utils.sum:no input vector provided.');
+			return;
+		}
+
+		var sum = 0;
+
+		for ( var i = 0; i < vector.length; i++ ) {
+			sum += vector[i];
+		}
+
+		return sum;
+
+	}; // end METHOD sum()
+
+
 })( utils );
