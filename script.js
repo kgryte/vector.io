@@ -13,8 +13,9 @@
 *
 *	TODO:
 *		[1] Type checking input arguments.
-*		[2] Consider using prototypes. Would allow method chaining and highly expressive and compact code.
-*		[3] Extend zeros and ones to arrays: take xDim, yDim, zDim as arguments. If only one argument, then length
+*		[2] Consider using prototypes. Would allow method chaining and highly expressive and compact code. This would also obviate the need for some type checking. (an array is an array)
+*		[3] Extend random number generators, zeros, and ones to arrays: take xDim, yDim, zDim as arguments. If only one argument, then length
+*		[4] Mean, Var, StDev should be extended to matrices, in which a dimension can be specified across which to calculate the desired quantity.
 *
 *
 *	AUTHOR:
@@ -159,7 +160,7 @@ var utils;
 			}
 
 			var eye = [];
-			for (var i; i < size; i++) {
+			for (var i = 0; i < size; i++) {
 				eye[i] = [];
 				for (var j = 0; j < size; j++) {
 					eye[i][j] = (i == j) ? 1 : 0;
@@ -168,7 +169,13 @@ var utils;
 
 			return eye;
 
-		} // end METHOD identity()
+		}, // end METHOD identity()
+
+
+		
+
+
+		
 
 	};
 
