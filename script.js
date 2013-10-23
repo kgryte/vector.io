@@ -98,11 +98,11 @@ var utils;
 		linspace: function( a, b, increment ) {
 			//
 			//	NOTES:
-			//		- Not guaranteed to include 'b'
+			//		- Does not include 'b'
 			//
 
 			var vec = [],
-				length = ( (b - a) / increment ) >> 1; // equivalent: Math.floor( (b-a) / increment )
+				length = Math.floor( (b-a) / increment );
 
 			vec[0] = a;
 
