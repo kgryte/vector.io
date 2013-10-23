@@ -81,6 +81,43 @@
 	}; // end METHOD mean()
 
 
+
+	// METHOD: median( vector )
+	//
+	// Calculate the median of an input vector.
+	utils.median = function( vector ) {
+		//
+		//
+		//
+		//
+
+		if ( !arguments.length ) {
+			console.error('ERROR:utils.median:no input vector provided.');
+			return;
+		}
+
+		var median,
+			id,
+			vec = vector.slice();
+
+		// Sort the copy of the vector:
+		vec.sort( function(a,b) { return a - b; } );
+
+		// Get the middle index:
+		id = Math.floor( vec.length / 2 );
+
+		if ( vec.length % 2 ) {
+			// The number of elements is not evenly divisible by two, hence we have a middle index:
+			return vec[ id ];
+		}
+
+		// Even number of elements, so must take the mean of the two middle values:
+		return ( vec[ id-1 ] + vec[ id ] ) / 2.0;
+
+
+	}; // end METHOD median()
+
+
 	// METHOD: max( vector )
 	//
 	// Calculate the maximum value of an input vector.

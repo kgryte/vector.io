@@ -4,7 +4,7 @@ TODO
 
 * 	Testing!
 
-1. 	Median
+1. 	
 2. 	Mode
 3. 	Correlation
 4. 	Covariance

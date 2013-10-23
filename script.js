@@ -172,6 +172,115 @@ var utils;
 		}, // end METHOD identity()
 
 
+
+		// METHOD: diag( array, values )
+		//
+		// Set or return the diagonal of a square matrix.
+		diag: function( array, values ) {
+			//
+			//
+			//
+			//
+
+			if ( !arguments.length ) {
+				console.error('ERROR:utils.diag:no array provided.');
+				return;
+			}
+
+			var xDim = array.length,
+				yDim,
+				vals = values || [],
+				numValues = vals.length,
+				vec = [];
+
+			// Check that the array is square:
+			for ( var k = 0; k < xDim; k++ ) {
+
+				yDim = array[ k ].length;
+
+				if ( yDim !== xDim ) {
+					console.error('ERROR:utils.diag:array is not square.');
+					return;
+				}
+
+			} // end FOR i
+
+			// If we have values, place them along the diagonal:
+			if ( numValues ) {
+
+				// Check that the number of values matches the array dimensions:
+				if ( numValues !== xDim ) {
+					console.error('ERROR:utils.diag:number of diagonal elements does not match the array dimensions.');
+					return;
+				}
+
+				for ( var i = 0; i < numValues; i++ ) {
+					array[i][i] = vals[i];
+				} // end FOR i
+
+				return array;
+
+			} // end IF numValues
+
+			// Grab the diagonal elements:
+			for ( var j = 0; j < xDim; j++ ) {
+				vec[j] = array[j][j];
+			} // end FOR j
+
+			return vec;
+
+		}, // end METHOD diag()
+
+
+
+		// METHOD: find( vector, callback, numValues )
+		//
+		//
+		find: function( vector, callback, numValues ) {
+			//
+			//	NOTES:
+			//		- the callback should perform a test condition; ideally, returning true or false. The callback is supplied a vector element, the element index, and the vector.
+			//		- numValues is used to short-circuit the search and return the first 'numValues' meeting the test	
+			//
+			//
+
+			if ( arguments.length < 2 ) {
+				console.error('ERROR:utils.find:only an array and callback should be provided.');
+				return;
+			}
+
+			var output,
+				success = [],
+				ids = [],
+				numVals = numValues || Number.POSITIVE_INFINITY,
+				counter = 0;
+
+			for ( var i = 0; i < vector.length; i++ ) {
+
+				// Send the current value to the callback:
+				output = callback( vector[ i ], i, vector );
+
+				// Boolean test:
+				if ( output ) {
+					// Success! We found a value meeting the test criteria. Store the value and its associated index...
+					success.push( vector[ i ] );
+					ids.push( i );
+
+					// Update our counter:
+					counter += 1;
+
+					if ( counter === numVals ) {
+						// We have found a sufficient number of values meeting the test critera; exit the loop...
+						break;
+					}
+				}
+
+			} // end FOR i
+
+			return [success, ids];
+
+
+		}, // end METHOD find()
 		
 
 
