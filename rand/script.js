@@ -173,6 +173,10 @@
 
 			vec.push( k - 1 );
 
+			// Reset k and p:
+			k = 0;
+			p = 1;
+
 		} // end FOR i
 
 
