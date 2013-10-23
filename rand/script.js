@@ -149,17 +149,17 @@
 	}; // end METHOD randint()
 
 
-	// METHOD: randp( rate, length )
+	// METHOD: randpoiss( rate, length )
 	//
 	// Generate random poisson numbers based on a specified rate
-	utils.randp = function( rate, length ) {
+	utils.randpoiss = function( rate, length ) {
 		//
 		//	NOTES:
 		//		- Implementation based on Knuth
 		//
 
 		if ( !arguments.length ) {
-			console.error('ERROR:utils.randp:no rate provided.');
+			console.error('ERROR:utils.randpoiss:no rate provided.');
 			return;
 		}
 
@@ -192,7 +192,7 @@
 		}
 		return vec;
 
-	}; // end METHOD randp()
+	}; // end METHOD randpoiss()
 
 
 	// METHOD: randexp( rate )
