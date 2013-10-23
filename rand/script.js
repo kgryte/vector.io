@@ -30,6 +30,7 @@
 *
 *	DEPENDENCIES:
 *		[1] Utils
+*		[2] Seedrandom
 *
 *
 *	AUTHOR:
@@ -55,6 +56,12 @@
 (function( utils ) {
 	'use strict';
 
+
+	// Use the seedrandom library to generate a seed for the generator and append the rand() method to the Math object.
+	utils.seed = Math.seedrandom();
+
+
+
 	// METHOD: randu( length )
 	//
 	// Generate uniformly distributed random numbers.
@@ -65,12 +72,12 @@
 		//
 
 		if ( !arguments.length ) {
-			return Math.random();
+			return Math.rand();
 		}
 
 		var vec = [];
 		for (var i = 0; i < length; i++) {
-			vec.push( Math.random() );
+			vec.push( Math.rand() );
 		}
 
 		return vec;
@@ -92,8 +99,8 @@
 			numValues = length || 1;
 
 		for (var i = 0; i < numValues; i++) {
-			urand = Math.random();
-			vrand = Math.random();
+			urand = Math.rand();
+			vrand = Math.rand();
 			vec.push (
 				Math.sqrt( -2*Math.log( urand ) ) * Math.cos( 2*Math.PI*vrand)
 			);
@@ -129,7 +136,7 @@
 		range = upper - lower + 1; // number of possible values, including both bounds
 
 		for (var i = 0; i < numValues; i++) {
-			val = Math.floor( (Math.random()*range) + 1 ); // + 1 to remove being below the lower bound
+			val = Math.floor( (Math.rand()*range) + 1 ); // + 1 to remove being below the lower bound
 			vec.push( val + lower );
 		} // end FOR i
 
@@ -167,7 +174,7 @@
 
 			do {
 				k = k + 1;
-				randu = Math.random();
+				randu = Math.rand();
 				p = p * randu;
 			}while ( p > l );
 
@@ -209,7 +216,7 @@
 
 
 		for ( var i = 0; i < numValues; i++ ) {
-			randu = Math.random();
+			randu = Math.rand();
 			vec.push( -Math.log( randu ) / rate );
 		} // end FOR i
 
