@@ -104,16 +104,34 @@ var utils;
 			var vec = [],
 				length = Math.floor( (b-a) / increment );
 
-			vec[0] = a;
+			vec.push( a );
 
 			for ( var i = 1; i < length; i++) {
-				vec[i] = a + increment*i;
+				vec.push( a + increment*i );
 			} // end FOR i
 
 			return vec;
 
 
 		}, // end METHOD linspace()
+
+		// METHOD: replicate( value, length )
+		//
+		replicate: function( value, length ) {
+			//
+			//
+			//
+			//
+
+			var _array = [];
+
+			for ( var i = 0; i < length; i++ ) {
+				_array.push( value );
+			} // end FOR i
+
+			return _array;
+
+		}, // end METHOD replicate()
 
 
 		// METHOD: cumsum( vector, sort )

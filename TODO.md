@@ -4,7 +4,7 @@ TODO
 
 * 	Testing!
 
-1. 	
+1. 	Repmat
 2. 	Mode
 3. 	Correlation
 4. 	Covariance
